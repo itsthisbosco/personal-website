@@ -1,6 +1,14 @@
 import Link from "next/link";
 import "../../globals.css";
 
+export async function generateStaticParams() {
+  // Add any dates here that should use this dynamic template
+  // Currently including 2025-10-28 which has no static page.tsx
+  return [
+    { date: "2025-10-28" }
+  ];
+}
+
 export default async function DatePage({ params }: { params: Promise<{ date: string }> }) {
   const { date } = await params;
   
